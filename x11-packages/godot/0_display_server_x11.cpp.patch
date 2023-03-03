@@ -1,0 +1,11 @@
+--- src/platform/linuxbsd/x11/display_server_x11.cpp	2023-03-05 14:58:25.129059380 +0300
++++ src/platform/linuxbsd/x11/display_server_x11.cpp.patch	2023-03-05 17:30:17.239055904 +0300
+@@ -5464,7 +5464,7 @@
+ #endif
+ 	// Initialize context and rendering device.
+ #if defined(GLES3_ENABLED)
+-	if (rendering_driver == "opengl3") {
++	if (!driver_found) {
+ 		if (getenv("DRI_PRIME") == nullptr) {
+ 			int use_prime = -1;
+ 
